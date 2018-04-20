@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class mouvement : MonoBehaviour
 {
 	public Transform target;
 	public float speed = 5;
