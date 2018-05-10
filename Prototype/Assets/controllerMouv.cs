@@ -25,11 +25,11 @@ public class controllerMouv : MonoBehaviour {
 
 	public void OnRightButtonDown (bool down)
 	{
-		_rightButtonDown = down;
+		_leftButtonDown = down;
 	}
 
 	public void OnLeftButtonDown (bool down)
 	{
-		_leftButtonDown = down;
+		_rightButtonDown = down;
 	}
 }

@@ -10,7 +10,8 @@ public class collisionFail : MonoBehaviour {
 	public Texture2D image_attention;
 	private bool flag = false;
 	private bool isTrigger = false;
-	public  Texture2D fond;	
+	public Texture2D fond;	
+
 
 	// Use this for initialization
 	void Start () 
@@ -20,25 +21,25 @@ public class collisionFail : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)  
 	{
-		if (collision.gameObject.name == "Cube") {
+		if (collision.gameObject.name == "Terrain") {
 			flag = true;
 			Debug.Log ("Message collision visible");
 		}
 	}
 
-	void OnCollisionExit(Collision collision)
+	/*void OnCollisionExit(Collision collision)
 	{
-		if (collision.gameObject.name == "Cube") {
+		if (collision.gameObject.name == "Terrain") {
 			flag = false;
 			Debug.Log ("Message collision caché");
 		}
-	}
+	}*/
 
 	void OnGUI()
 	{
 
 		GUI.skin = mySkin;
-
+		fond = Resources.Load<Texture2D>("Textures/wasted.png");
 		int l = 750; //largeur panneau
 		int h = 750; //hauteur panneau
 		int ox = Screen.width/2-l/2; //position panneau pour le centrer en X
