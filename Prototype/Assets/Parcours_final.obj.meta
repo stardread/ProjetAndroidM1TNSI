@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: a936fdd3672577143af393f485006beb
-timeCreated: 1525959931
-licenseType: Free
+guid: adc00800f4e247649a76e83f625b793b
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
+    100000: //RootNode
+    100002: default
+    400000: //RootNode
+    400002: default
     2100000: defaultMat
     2300000: default
     3300000: default
     4300000: default
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -32,6 +31,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
