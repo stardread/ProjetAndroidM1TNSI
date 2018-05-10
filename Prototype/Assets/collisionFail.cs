@@ -39,7 +39,8 @@ public class collisionFail : MonoBehaviour {
 	{
 
 		GUI.skin = mySkin;
-		fond = Resources.Load<Texture2D>("Textures/wasted.png");
+
+		fond = (Texture2D)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Textures/wasted.png", typeof(Texture2D));
 		int l = 750; //largeur panneau
 		int h = 750; //hauteur panneau
 		int ox = Screen.width/2-l/2; //position panneau pour le centrer en X
@@ -53,7 +54,7 @@ public class collisionFail : MonoBehaviour {
 			GUI.color = new Color( 1,1,1,1); //Permet de remettre la transparence à 1 pour les GUI suivants
 
 			//GUI.DrawTexture(new Rect(ox,oy,l+30,h), "wasted");
-			GUI.TextField(new Rect(ox,oy,l,h),"PERDU !");
+			//GUI.TextField(new Rect(ox,oy,l,h),"PERDU !");
 		}
 	}
 }
