@@ -6,6 +6,6 @@ public class mouvement_plateau : MonoBehaviour {
 	public float speed;
 	// Update is called once per frame
 	void Update () {
-		transform.Translate (Vector3.forward * Time.deltaTime * 2);
+		transform.Translate (Vector3.down * Time.deltaTime * 2);
 	}
 }
