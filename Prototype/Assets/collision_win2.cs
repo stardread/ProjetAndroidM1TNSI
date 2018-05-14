@@ -11,7 +11,6 @@ public class collision_win2 : MonoBehaviour {
 	private bool flag = false;
 	private bool isTrigger = false;
 	public Texture2D fond;	
-	private Rigidbody rb;
 
 
 	// Use this for initialization
@@ -22,10 +21,7 @@ public class collision_win2 : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)  
 	{
-		if (collision.gameObject.name == "Arrivée") {
-			flag = true;
-			Debug.Log ("Message collision visible");
-		}
+		
 	}
 
 	/*void OnCollisionExit(Collision collision)

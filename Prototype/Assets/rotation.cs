@@ -22,12 +22,15 @@ public class rotation : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 	}
 
-	void FixedUpdate ()
+	void FixedUpdate()
 	{
-		
-
-		Vector3 movement = new Vector3 (0.0f,0.0f,-1.0f);
-
-		rb.AddForce (movement * speed);
+		GameObject gameControllerObject = GameObject.Find("Ball");
+		collisionFail tmp = gameControllerObject.GetComponent<collisionFail> ();
+		if (tmp.flag_tmp == 0) 
+		{
+			Vector3 movement = new Vector3 (0.0f, 0.0f, -1.0f);
+			rb.AddForce (movement * speed);
+		}
 	}
+
 }
