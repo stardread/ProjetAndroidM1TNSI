@@ -13,6 +13,7 @@ public class collisionFail : MonoBehaviour {
 	private bool isTrigger = false;
 	public Texture2D fond;	
 	private Rigidbody rb;
+	private GameObject button_restart;
 
 
 	// Use this for initialization
@@ -20,6 +21,8 @@ public class collisionFail : MonoBehaviour {
 	{
 		flag = 0;
 		rb = GetComponent<Rigidbody>();
+		button_restart = GameObject.Find("ButtonRestart");
+		button_restart.SetActive (false);
 	}
 
 	void OnCollisionEnter(Collision collision)  
@@ -32,6 +35,8 @@ public class collisionFail : MonoBehaviour {
 			rb.angularVelocity = Vector3.zero;
 			GameObject gameControllerObject = GameObject.Find("Main Camera");
 			gameControllerObject.transform.Translate (Vector3.zero);
+			GameObject.Find("ButtonRight").SetActive (false);
+			GameObject.Find("ButtonLeft").SetActive (false);
 		}
 		else if (collision.gameObject.name == "Arrivée") {
 			flag = 2;
@@ -41,6 +46,9 @@ public class collisionFail : MonoBehaviour {
 			rb.angularVelocity = Vector3.zero;
 			GameObject gameControllerObject = GameObject.Find("Main Camera");
 			gameControllerObject.transform.Translate (Vector3.zero);
+			GameObject.FindGameObjectWithTag("restart_button").SetActive (true);
+			GameObject.Find("ButtonRight").SetActive (false);
+			GameObject.Find("ButtonLeft").SetActive (false);
 		}
 	}
 
@@ -51,9 +59,9 @@ public class collisionFail : MonoBehaviour {
 
 		//fond = (Texture2D)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Textures/wasted.png", typeof(Texture2D));
 		int l = 750; //largeur panneau
-		int h = 750; //hauteur panneau
+		int h = 250; //hauteur panneau
 		int ox = Screen.width/2-l/2; //position panneau pour le centrer en X
-		int oy = Screen.height/2-h/2; //position panneau pour le centrer en Y
+		int oy = 0; //position panneau pour le centrer en Y
 
 		if(flag == 1)
 		{  	
@@ -63,6 +71,7 @@ public class collisionFail : MonoBehaviour {
 			GUI.color = new Color( 1,1,1,1); //Permet de remettre la transparence à 1 pour les GUI suivants
 
 			GUI.TextField(new Rect(ox,oy,l,h),"PERDU !");
+			button_restart.SetActive (true);
 		}
 		else if(flag == 2)
 		{  	
@@ -72,6 +81,8 @@ public class collisionFail : MonoBehaviour {
 			GUI.color = new Color( 1,1,1,1); //Permet de remettre la transparence à 1 pour les GUI suivants
 
 			GUI.TextField(new Rect(ox,oy,l,h),"VICTOIRE !");
+			button_restart.SetActive (true);
 		}
+
 	}
 }
