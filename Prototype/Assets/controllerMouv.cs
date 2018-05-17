@@ -5,7 +5,7 @@ using UnityEngine;
 public class controllerMouv : MonoBehaviour {
 
 	public Transform target;
-	public float speed = 5;
+	public float speed = 1;
 
 	bool _rightButtonDown;
 	bool _leftButtonDown;
