@@ -14,6 +14,7 @@ public class collisionFail : MonoBehaviour {
 	public Texture2D fond;	
 	private Rigidbody rb;
 	private GameObject button_restart;
+	private GameObject button_menu;
 
 
 	// Use this for initialization
@@ -23,6 +24,8 @@ public class collisionFail : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		button_restart = GameObject.Find("ButtonRestart");
 		button_restart.SetActive (false);
+		button_menu = GameObject.Find("ButtonMenu");
+		button_menu.SetActive (false);
 	}
 
 	void OnCollisionEnter(Collision collision)  
@@ -58,8 +61,8 @@ public class collisionFail : MonoBehaviour {
 		GUI.skin = mySkin;
 
 		//fond = (Texture2D)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Textures/wasted.png", typeof(Texture2D));
-		int l = 750; //largeur panneau
-		int h = 250; //hauteur panneau
+		int l = 250; //largeur panneau
+		int h = 150; //hauteur panneau
 		int ox = Screen.width/2-l/2; //position panneau pour le centrer en X
 		int oy = 0; //position panneau pour le centrer en Y
 
@@ -72,6 +75,9 @@ public class collisionFail : MonoBehaviour {
 
 			GUI.TextField(new Rect(ox,oy,l,h),"PERDU !");
 			button_restart.SetActive (true);
+			button_menu.SetActive (true);
+			GameObject.Find("ButtonRight").SetActive (false);
+			GameObject.Find("ButtonLeft").SetActive (false);
 		}
 		else if(flag == 2)
 		{  	
@@ -82,6 +88,9 @@ public class collisionFail : MonoBehaviour {
 
 			GUI.TextField(new Rect(ox,oy,l,h),"VICTOIRE !");
 			button_restart.SetActive (true);
+			button_menu.SetActive (true);
+			GameObject.Find("ButtonRight").SetActive (false);
+			GameObject.Find("ButtonLeft").SetActive (false);
 		}
 
 	}
