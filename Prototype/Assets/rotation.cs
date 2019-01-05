@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class rotation : MonoBehaviour {
@@ -14,13 +15,17 @@ public class rotation : MonoBehaviour {
 		//transform.Rotate((Vector3.forward* Time.deltaTime), Space.Self);
 	}*/
 	public float speed;
-
+    public Text countText;
 	private Rigidbody rb;
+
+    private int count;
 
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody>();
-	}
+        count = 0;
+        SetScore();
+    }
 
 	void FixedUpdate()
 	{
@@ -38,6 +43,14 @@ public class rotation : MonoBehaviour {
         if (other.gameObject.CompareTag("Cube"))
         {
             other.gameObject.SetActive(false);
+            count = count + 1;
+            SetScore();
         }
+    }
+
+    void SetScore()
+    {
+        countText.text = "Count: " + count.ToString();
+
     }
 }
