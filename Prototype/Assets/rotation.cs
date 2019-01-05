@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class rotation : MonoBehaviour {
 
-	/*public float speed ;
+    /*public float speed ;
 	// Update is called once per frame
 	void Update () {
 		transform.Rotate(Vector3.left, speed , Space.Self);
@@ -15,6 +15,7 @@ public class rotation : MonoBehaviour {
 
 		//transform.Rotate((Vector3.forward* Time.deltaTime), Space.Self);
 	}*/
+    public AudioClip GoldSound;
 	public float speed;
     public Text countText;
 	private Rigidbody rb;
@@ -51,6 +52,7 @@ public class rotation : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             count = count + 1;
+            MakeGoldSound();
             SetScore();
         }
     }
@@ -67,4 +69,10 @@ public class rotation : MonoBehaviour {
         time.text = ("Temps : " + timeInt + " seconde(s)");
         temps += Time.deltaTime;
     }
+
+    public void MakeGoldSound()
+    {
+        AudioSource.PlayClipAtPoint(GoldSound, transform.position);
+    }
+
 }
