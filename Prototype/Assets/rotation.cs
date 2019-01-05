@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -17,13 +18,16 @@ public class rotation : MonoBehaviour {
 	public float speed;
     public Text countText;
 	private Rigidbody rb;
-
+    public Text time;
     private int count;
+    private float temps;
+    private int timeInt;
 
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody>();
         count = 0;
+        temps = 0;
         SetScore();
     }
 
@@ -36,7 +40,10 @@ public class rotation : MonoBehaviour {
 			Vector3 movement = new Vector3 (0.0f, 0.0f, -1.0f);
 			rb.AddForce (movement * speed);
 		}
-	}
+
+        SetTime();
+
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -52,5 +59,12 @@ public class rotation : MonoBehaviour {
     {
         countText.text = "Count: " + count.ToString();
 
+    }
+
+    void SetTime()
+    {
+        timeInt = Mathf.RoundToInt(temps);
+        time.text = ("Temps : " + timeInt + " seconde(s)");
+        temps += Time.deltaTime;
     }
 }
