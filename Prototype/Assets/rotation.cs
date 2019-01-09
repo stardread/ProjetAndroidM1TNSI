@@ -36,14 +36,11 @@ public class rotation : MonoBehaviour {
 	{
 		GameObject gameControllerObject = GameObject.Find("Ball");
 		collisionFail tmp = gameControllerObject.GetComponent<collisionFail> ();
-		if (tmp.flag_tmp == 0) 
-		{
+		if (tmp.flag_tmp == 0) {
 			Vector3 movement = new Vector3 (0.0f, 0.0f, -1.0f);
 			rb.AddForce (movement * speed);
-		}
-
-        SetTime();
-
+			SetTime();
+		} 
     }
 
     void OnTriggerEnter(Collider other)

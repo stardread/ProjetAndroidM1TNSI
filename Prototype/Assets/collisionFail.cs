@@ -16,6 +16,7 @@ public class collisionFail : MonoBehaviour {
 	private GameObject button_restart;
 	private GameObject button_menu;
 	public Text temps;
+	public Text points;
 
 
 	// Use this for initialization
@@ -87,7 +88,7 @@ public class collisionFail : MonoBehaviour {
 			//GUI.DrawTexture(new Rect(0,0 ,Screen.width,Screen.height), fond);
 			GUI.color = new Color( 1,1,1,1); //Permet de remettre la transparence à 1 pour les GUI suivants
 
-			GUI.TextField(new Rect(ox,oy,l,h),"VICTOIRE ! Vous avez mis "+temps.text+"");
+			GUI.TextField(new Rect(ox,oy,l,h),"VICTOIRE ! \n"+temps.text+"\n"+points.text);
 			button_restart.SetActive (true);
 			button_menu.SetActive (true);
 			GameObject.Find("ButtonRight").SetActive (false);
