@@ -59,7 +59,7 @@ public class rotation : MonoBehaviour {
 
     void SetScore()
     {
-        countText.text = "Count: " + count.ToString();
+        countText.text = "Points : " + count.ToString();
 
     }
 
